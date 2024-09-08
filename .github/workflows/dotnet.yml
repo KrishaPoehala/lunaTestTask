@@ -1,45 +1,36 @@
-name: CI for LunaTestTask with Docker
+name: CI for LunaTestTask
 
+# Run this workflow every time there's a push to the main branch
 on:
   push:
     branches:
       - main
 
+# Specify the jobs for the workflow
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    # Steps of the workflow
     steps:
+      # Checkout the code from the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Set up .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x'
+          dotnet-version: '8.x' # Ensure it matches your .NET version
 
-      # Install Docker
-      - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-          sudo systemctl start docker
-          sudo systemctl enable docker
+      # Install dependencies
+      - name: Install dependencies
+        run: dotnet restore
 
-      # Install Docker Compose
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
+      # Build the project
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
-      # Build and run Docker Compose containers
-      - name: Build and Run Docker Compose
-        run: docker-compose -f docker-compose.yml up -d --build
-
-      # Run unit tests inside the container
+      # Run tests
       - name: Run unit tests
-        run: docker exec -it lunatesttask dotnet test --no-restore --verbosity normal
-
-      # Tear down the Docker containers after testing
-      - name: Tear down Docker Compose
-        run: docker-compose down
+        run: dotnet test --no-restore --verbosity normal
