@@ -54,6 +54,7 @@ Once everything is up and running, you can access the API at:
 HTTP: http://localhost:5000
 HTTPS: https://localhost:5001
 The PostgreSQL database is accessible on port 5432.
+You can access the swagger you by going: https://localhost:5001/swagger/index.html
 
 ## Shutting Down the Services
 To stop and remove the containers, run:
