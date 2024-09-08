@@ -4,6 +4,8 @@ using LunaTestTask.Domain.RepositoryParameters;
 
 namespace LunaTestTask.Application.User.Queries.GetTasksQuery;
 
+//validating provided strings to match enums
+//if some value is null(not provided by the user) it is ignored
 public class GetTasksQueryValidator : AbstractValidator<GetTasksQuery>
 {
     public GetTasksQueryValidator()

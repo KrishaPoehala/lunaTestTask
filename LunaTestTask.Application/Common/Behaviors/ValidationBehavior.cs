@@ -3,6 +3,8 @@ using MediatR;
 
 namespace LunaTestTask.Application.Common.Behaviors;
 
+//automatically validation the mediator request and throwing an exception
+//containing error messages in case of invalid result
 public class ValidationBehavior<TRequest, TResponse>(IValidator<TRequest>? validator = null)
     : IPipelineBehavior<TRequest, TResponse>
 {

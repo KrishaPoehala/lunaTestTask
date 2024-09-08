@@ -1,5 +1,4 @@
-﻿using LunaTestClass.Infrastructure.Persistance;
-using LunaTestClass.Infrastructure.Services;
+﻿using LunaTestClass.Infrastructure.Services;
 using LunaTestTask.Application.Common.Interfaces;
 using LunaTestTask.Domain.Repositories;
 using LunaTestTask.Infrastructure.Persistance;

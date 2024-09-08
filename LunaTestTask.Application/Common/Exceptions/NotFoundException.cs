@@ -1,5 +1,8 @@
 ﻿namespace LunaTestTask.Application.Common.Exceptions;
 
+/// <summary>
+/// Is thrown when an entity was not found in the databse
+/// </summary>
 public class NotFoundException :ApplicationException
 {
     public NotFoundException(string name, Guid id)

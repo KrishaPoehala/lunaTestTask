@@ -3,9 +3,9 @@ using LunaTestTask.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace LunaTestClass.Infrastructure.Persistance;
+namespace LunaTestTask.Infrastructure.Persistance;
 
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     : DbContext(options)
 {
     public DbSet<User> Users { get; private set; }

@@ -1,6 +1,6 @@
-﻿using LunaTestClass.Infrastructure.Persistance;
-using LunaTestTask.Domain.Entities;
+﻿using LunaTestTask.Domain.Entities;
 using LunaTestTask.Domain.Repositories;
+using LunaTestTask.Infrastructure.Persistance;
 using Microsoft.EntityFrameworkCore;
 
 namespace LunaTestTask.Infrastructure.Repositories;

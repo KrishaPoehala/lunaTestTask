@@ -2,6 +2,7 @@
 
 namespace LunaTestTask.Application.Common.Dtos;
 
+//since records do not have an empty ctor I will just use a class
 public class TaskDto
 {
     public Guid Id { get; set; }

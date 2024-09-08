@@ -1,4 +1,3 @@
-using LunaTestClass.Infrastructure.Persistance;
 using LunaTestTask.Application;
 using LunaTestTask.Application.Common.Interfaces;
 using LunaTestTask.Infrastructure;
@@ -68,17 +67,10 @@ await InitializeDb(app);
 app.Run();
 static async Task InitializeDb(IApplicationBuilder app)
 {
+    //create a scope in which dbcontext and dbcontextinitializer will be created to run migrations automatically
     using var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
     using var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    try
-    {
-        var g = context.Database.GetConnectionString();
-        context.Database.Migrate();
-    }
-    catch (Exception ex)
-    {
-        throw;
-    }
+    context.Database.Migrate();
     var initializer = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitializer>();
     await initializer.InitializeAsync();
 }

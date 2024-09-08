@@ -23,6 +23,7 @@ public class GetTaskQueryHandler(ITaskRepository taskRepository, IMapper mapper)
         return allTasks.Select(mapper.Map<TaskDto>);
     }
 
+    //parsing provided values(strings) to corresponding types
     private static GetAllTasksOptions ParseRequestToTasksOptions(GetTasksQuery request)
     {
         TaskEntityStatus? statusFilter = null;

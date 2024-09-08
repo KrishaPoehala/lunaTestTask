@@ -12,6 +12,7 @@ public class ErrorHandlerMiddleware : IMiddleware
 		}
 		catch(FluentValidation.ValidationException ex)
 		{
+            //getting all the validation errors in one place and writing it to the response body
             context.Response.StatusCode = StatusCodes.Status400BadRequest;
             await context.Response.WriteAsJsonAsync(new
             {

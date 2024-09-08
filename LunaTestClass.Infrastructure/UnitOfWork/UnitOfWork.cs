@@ -1,5 +1,5 @@
-﻿using LunaTestClass.Infrastructure.Persistance;
-using LunaTestTask.Domain.Repositories;
+﻿using LunaTestTask.Domain.Repositories;
+using LunaTestTask.Infrastructure.Persistance;
 
 namespace LunaTestTask.Infrastructure.UnitOfWork;
 

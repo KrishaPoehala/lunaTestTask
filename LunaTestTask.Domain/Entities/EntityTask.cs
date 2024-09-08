@@ -1,5 +1,6 @@
 ﻿namespace LunaTestTask.Domain.Entities;
 
+//naming TaskEntity so this class would not be confused with Task class from TPL
 public class TaskEntity
 {
     public Guid Id { get; set; }

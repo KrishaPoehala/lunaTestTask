@@ -1,8 +1,11 @@
-﻿using LunaTestClass.Infrastructure.Persistance;
-using LunaTestTask.Domain.Entities;
+﻿using LunaTestTask.Domain.Entities;
 
 namespace LunaTestTask.Infrastructure.Persistance;
 
+/// <summary>
+/// Mock data initializer
+/// </summary>
+/// <param name="context"></param>
 public class ApplicationDbContextInitializer(ApplicationDbContext context)
 {
     public async Task InitializeAsync()
