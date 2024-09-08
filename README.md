@@ -23,7 +23,6 @@ cd LunaTestTask
 Make sure you have a .env file in the root directory (same as your docker-compose.yml file). The .env file should look like this:
 
 ``` bash
-Copy code
 DB_USER=postgres
 DB_PASSWORD=yourpassword
 DB_NAME=luna
