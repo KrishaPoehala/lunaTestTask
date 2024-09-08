@@ -18,11 +18,25 @@ jobs:
         with:
           dotnet-version: '8.x'
 
-      # Build and run Docker Compose
-      - name: Build Docker Compose containers
+      # Install Docker
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+          sudo systemctl start docker
+          sudo systemctl enable docker
+
+      # Install Docker Compose
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
+      # Build and run Docker Compose containers
+      - name: Build and Run Docker Compose
         run: docker-compose -f docker-compose.yml up -d --build
 
-      # Run unit tests
+      # Run unit tests inside the container
       - name: Run unit tests
         run: docker exec -it lunatesttask dotnet test --no-restore --verbosity normal
 
