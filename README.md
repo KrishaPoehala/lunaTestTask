@@ -19,7 +19,7 @@ Navigate to the project directory:
 ``` bash
 cd LunaTestTask
 ```
-###Setting Up Environment Variables
+### Setting Up Environment Variables
 Make sure you have a .env file in the root directory (same as your docker-compose.yml file). The .env file should look like this:
 
 ``` bash
@@ -48,14 +48,14 @@ Build the Docker image for the lunatesttask service.
 Start the PostgreSQL container using the volume for persistent data storage.
 Expose ports 5000 and 5001 for the API, and port 5432 for the PostgreSQL database.
 
-##Accessing the Application
+## Accessing the Application
 Once everything is up and running, you can access the API at:
 
 HTTP: http://localhost:5000
 HTTPS: https://localhost:5001
 The PostgreSQL database is accessible on port 5432.
 
-##Shutting Down the Services
+## Shutting Down the Services
 To stop and remove the containers, run:
 
 ```bash
