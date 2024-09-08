@@ -1,0 +1,32 @@
+services:
+  lunatesttask:
+    image: ${DOCKER_REGISTRY-}lunatesttask
+    build:
+      context: .
+      dockerfile: LunaTestTask/Dockerfile
+
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+    environment:
+      JWT__Secret: ${JWT_SECRET}
+      ConnectionStrings__DefaultConnection: "Host=${DB_HOST};Port=${DB_PORT};Database=${DB_NAME};Username=${DB_USER};Password=${DB_PASSWORD};"
+    env_file:
+    - .env
+
+  lunatesttask.database:
+    image: postgres:latest
+    container_name: lunatesttask.database
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_PORT: ${DB_PORT}
+    ports:
+        - 5432:5432 
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    env_file:
+    - .env #docker does not want to use .env file without specifically telling it to (for some reason)
+
+

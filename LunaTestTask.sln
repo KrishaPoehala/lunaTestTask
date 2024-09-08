@@ -15,8 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTestTask.UnitTests", "L
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B232E126-187D-4424-A57E-4FDBAE19A1CF}"
 	ProjectSection(SolutionItems) = preProject
+		.env = .env
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{53DB9A35-549C-4F42-947F-834E7158B236}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +47,10 @@ Global
 		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53DB9A35-549C-4F42-947F-834E7158B236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53DB9A35-549C-4F42-947F-834E7158B236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53DB9A35-549C-4F42-947F-834E7158B236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53DB9A35-549C-4F42-947F-834E7158B236}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -70,7 +70,15 @@ static async Task InitializeDb(IApplicationBuilder app)
 {
     using var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
     using var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    context.Database.Migrate();
+    try
+    {
+        var g = context.Database.GetConnectionString();
+        context.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        throw;
+    }
     var initializer = scope.ServiceProvider.GetRequiredService<ApplicationDbContextInitializer>();
     await initializer.InitializeAsync();
 }
