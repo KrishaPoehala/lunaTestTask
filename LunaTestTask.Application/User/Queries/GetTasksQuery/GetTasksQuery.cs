@@ -9,7 +9,8 @@ namespace LunaTestTask.Application.User.Queries.GetTasksQuery;
 
 public record GetTasksQuery(string? Status,
     string? DueDate, string? Priority,
-    string? SortBy, bool SortingOrder = false) 
+    string? SortBy, bool SortingOrder = false,
+    int PageNumber = 1,int PageSize = 5) 
     : IRequest<IEnumerable<TaskDto>>;
 
 public class GetTaskQueryHandler(ITaskRepository taskRepository, IMapper mapper) 
@@ -52,7 +53,7 @@ public class GetTaskQueryHandler(ITaskRepository taskRepository, IMapper mapper)
         }
 
         var getAllTasksContext = new GetAllTasksOptions(statusFilter, dueDateTimeFilter,
-            priorityFiler, sortingOption, request.SortingOrder);
+            priorityFiler, sortingOption, request.SortingOrder,request.PageSize,request.PageNumber);
 
         return getAllTasksContext;
     }

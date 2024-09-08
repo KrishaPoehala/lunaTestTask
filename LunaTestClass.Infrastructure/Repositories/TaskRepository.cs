@@ -15,8 +15,11 @@ public class TaskRepository(ApplicationDbContext context,ICurrentUserService cur
 
     public async Task<IEnumerable<TaskEntity>> GetAll(GetAllTasksOptions parameters, CancellationToken token)
     {
-        var query = context.Set<TaskEntity>().AsQueryable();
-        if(parameters.PriorityFilter is not null)
+        var query = context
+            .Set<TaskEntity>()
+            .Include(x => x.User)
+            .AsQueryable();
+        if (parameters.PriorityFilter is not null)
         {
             query = query.Where(x => x.Priority == parameters.PriorityFilter);
         }
@@ -42,6 +45,10 @@ public class TaskRepository(ApplicationDbContext context,ICurrentUserService cur
         }
 
         query = query.Where(x => x.UserId == currentUserService.Id);
+        query = query
+            .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+            .Take(parameters.PageSize);
+
         return await query.ToListAsync(token);
     }
 

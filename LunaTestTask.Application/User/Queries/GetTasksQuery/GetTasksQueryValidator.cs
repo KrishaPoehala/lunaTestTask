@@ -28,6 +28,14 @@ public class GetTasksQueryValidator : AbstractValidator<GetTasksQuery>
         RuleFor(x => x.SortBy)
             .Must(IsValidEnumOrNull<SortingOption>)
             .WithMessage("Invalid SortBy value.");
+
+        RuleFor(x => x.PageNumber)
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Page size must be greater or equal to 0");
+
+        RuleFor(x => x.PageSize)
+            .GreaterThan(0)
+            .WithMessage("Page size must be greater than 0");
     }
 
     private static bool IsValidEnumOrNull<TEnum>(string? value) where TEnum : struct
