@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35208.52
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTestTask", "LunaTestTask\LunaTestTask.csproj", "{230D9FAD-D5BF-4A8C-82AD-9C874ED97697}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTestTask.Application", "LunaTestTask.Application\LunaTestTask.Application.csproj", "{499131F5-6E2D-4423-839E-D0C0028C30F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTestTask.Infrastructure", "LunaTestClass.Infrastructure\LunaTestTask.Infrastructure.csproj", "{C26CD096-7FB8-427D-91EE-CA410463DC65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTestTask.Domain", "LunaTestTask.Domain\LunaTestTask.Domain.csproj", "{562F1AD6-8F2A-4D14-B139-DF0E182CAA0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunaTestTask.UnitTests", "LunaTestTask.UnitTests\LunaTestTask.UnitTests.csproj", "{36A52334-593D-4EC9-92CB-45DD9DAD24A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B232E126-187D-4424-A57E-4FDBAE19A1CF}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{230D9FAD-D5BF-4A8C-82AD-9C874ED97697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230D9FAD-D5BF-4A8C-82AD-9C874ED97697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230D9FAD-D5BF-4A8C-82AD-9C874ED97697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230D9FAD-D5BF-4A8C-82AD-9C874ED97697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499131F5-6E2D-4423-839E-D0C0028C30F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499131F5-6E2D-4423-839E-D0C0028C30F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499131F5-6E2D-4423-839E-D0C0028C30F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499131F5-6E2D-4423-839E-D0C0028C30F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26CD096-7FB8-427D-91EE-CA410463DC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26CD096-7FB8-427D-91EE-CA410463DC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26CD096-7FB8-427D-91EE-CA410463DC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26CD096-7FB8-427D-91EE-CA410463DC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562F1AD6-8F2A-4D14-B139-DF0E182CAA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562F1AD6-8F2A-4D14-B139-DF0E182CAA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562F1AD6-8F2A-4D14-B139-DF0E182CAA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562F1AD6-8F2A-4D14-B139-DF0E182CAA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A52334-593D-4EC9-92CB-45DD9DAD24A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A0B37E9-BB97-451B-9C99-92A5EC502114}
+	EndGlobalSection
+EndGlobal
