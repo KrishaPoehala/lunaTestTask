@@ -1,7 +1,7 @@
 ﻿namespace LunaTestTask.Application.Common.Exceptions;
 
 /// <summary>
-/// Is thrown when a user does own tasks its trying to access
+/// Is thrown when a user does not own tasks its trying to access
 /// </summary>
 public class ForbiddenException : ApplicationException
 {

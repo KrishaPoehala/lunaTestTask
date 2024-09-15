@@ -6,4 +6,5 @@ public interface IUserRepository
     Task<User?> GetByEmail(string email, CancellationToken cancellationToken);
     Task<bool> ExistsByEmail(string email, CancellationToken cancellationToken);
     void Add(User user);
+    Task<bool> ExistsByName(string username, CancellationToken cancellationToken);
 }

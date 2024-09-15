@@ -12,7 +12,12 @@ public class UserRepository(ApplicationDbContext context) : IUserRepository
     public async Task<bool> ExistsByEmail(string email, CancellationToken cancellationToken) => 
          await context
         .Set<User>()
-        .AnyAsync(x => x.Email == email, cancellationToken);    
+        .AnyAsync(x => x.Email == email, cancellationToken);
+
+    public async Task<bool> ExistsByName(string username, CancellationToken cancellationToken) => 
+         await context
+        .Set<User>()
+        .AnyAsync(x => x.Username == username, cancellationToken);
 
     public async Task<User?> GetByEmail(string email, CancellationToken cancellationToken) => 
         await context

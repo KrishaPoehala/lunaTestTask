@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using LunaTestTask.Application.Common.Dtos;
+using LunaTestTask.Application.Common.Exceptions;
 using LunaTestTask.Application.Common.Interfaces;
 using LunaTestTask.Domain.Repositories;
 using MediatR;
@@ -15,10 +16,16 @@ public class RegisterUserCommandHandler(ITokenProvider tokenProvider, IMapper ma
 {
     public async Task<AuthResponseDto> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
-        var alreadyExists = await repository.ExistsByEmail(request.Email, cancellationToken);
-        if (alreadyExists)
+        var emailExists = await repository.ExistsByEmail(request.Email, cancellationToken);
+        if (emailExists)
         {
-            return new(["User with such an email alread exists"]);
+            throw new AlreadyExistsException(nameof(request.Email), request.Email);
+        }
+
+        var userNameExists = await repository.ExistsByName(request.Username, cancellationToken);
+        if (userNameExists)
+        {
+            throw new AlreadyExistsException(nameof(request.Username), request.Username);
         }
 
         var hasher = new PasswordHasher<Domain.Entities.User>();

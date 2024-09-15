@@ -14,7 +14,7 @@ public class UsersController : ApiBaseController
     public async Task<IActionResult> Login(LoginUserCommand command)
     {
         var result = await Mediator.Send(command);
-        return result.IsSuccessfull ? Ok(result) : BadRequest(result);
+        return Ok(result);
     }
 
     [HttpPost]
@@ -22,6 +22,6 @@ public class UsersController : ApiBaseController
     public async Task<IActionResult> Register(RegisterUserCommand request)
     {
         var result = await Mediator.Send(request);
-        return result.IsSuccessfull ? Ok(result) : BadRequest(result);
+        return Ok(result);
     }
 }

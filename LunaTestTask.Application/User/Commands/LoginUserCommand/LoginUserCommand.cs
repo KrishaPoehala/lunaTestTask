@@ -1,4 +1,5 @@
 ﻿using LunaTestTask.Application.Common.Dtos;
+using LunaTestTask.Application.Common.Exceptions;
 using LunaTestTask.Application.Common.Interfaces;
 using LunaTestTask.Domain.Repositories;
 using MediatR;
@@ -17,7 +18,7 @@ public class LoginUserCommandHandler(ITokenProvider tokenProvider, IUserReposito
         var user = await repository.GetByEmail(request.Email, cancellationToken);
         if (user is null)
         {
-            return new(["User with such an email does not exist"]);
+            throw new AlreadyExistsException(nameof(request.Email), request.Email);
         }
 
         //Trying to verify given password and returning a failure if an incorrect password was entered
@@ -25,7 +26,7 @@ public class LoginUserCommandHandler(ITokenProvider tokenProvider, IUserReposito
         var verificationResult = hasher.VerifyHashedPassword(user, user.PasswordHash, request.Password);
         if (verificationResult == PasswordVerificationResult.Failed)
         {
-            return new(["Wrong password"]);
+            throw new WrongPasswordException();
         }
 
         var token = tokenProvider.GenerateToken(user);
