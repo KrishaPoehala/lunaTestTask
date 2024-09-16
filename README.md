@@ -35,7 +35,7 @@ Replace yourpassword and your_jwt_secret_key with appropriate values.
 Before running the project, you need to create a volume to store PostgreSQL data persistently. Run the following command:
 
 ```bash
-docker volume create lunatesttask_pgdata
+docker volume create pgdata
 ```
 Now you can run the project using Docker Compose. This will build and start both the application and the PostgreSQL database.
 ```bash
